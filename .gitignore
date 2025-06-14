@@ -49,8 +49,8 @@ Thumbs.db
 # ------------------------------
 # 📊 Test Reports & Screenshots
 # ------------------------------
-reports/
-screenshots/
+/reports/
+!/src/main/java/com/company/framework/reports/
 
 # ------------------------------
 # 📁 Logs
