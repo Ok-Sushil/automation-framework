@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automation Test Suite" parallel="false">
+
+    <listeners>
+        <listener class-name="com.company.framework.listeners.TestListener"/>
+    </listeners>
+
+    <test name="Regression Tests">
+        <classes>
+            <class name="com.company.framework.tests.LoginTest"/>
+            <!-- Agar aur test classes add karo to yaha mention kar dena -->
+        </classes>
+    </test>
+
+</suite>

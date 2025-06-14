@@ -1,0 +1,63 @@
+# ------------------------------
+# 🔨 Build and Dependency Artifacts
+# ------------------------------
+target/
+build/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ------------------------------
+# 💻 IntelliJ IDEA
+# ------------------------------
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ------------------------------
+# 📘 Eclipse
+# ------------------------------
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# ------------------------------
+# 🌟 NetBeans
+# ------------------------------
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ------------------------------
+# 🧠 VS Code
+# ------------------------------
+.vscode/
+
+# ------------------------------
+# 🍏 macOS
+# ------------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------------
+# 📊 Test Reports & Screenshots
+# ------------------------------
+reports/
+screenshots/
+
+# ------------------------------
+# 📁 Logs
+# ------------------------------
+*.log
+
+# ------------------------------
+# 🧪 Jenkins Backup Files (Optional)
+# ------------------------------
+*.jenkinsfile.backup
