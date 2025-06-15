@@ -12,8 +12,8 @@ import org.testng.annotations.Test;
 @Listeners({TestListener.class})
 public class LoginTest extends BaseTest {
 
-    @Test(description = "Verify successful login")
-    public void testValidLogin() {
+    @Test(description = "Verify successful login 1st")
+    public void testValidLogin1() {
         LoginPage loginPage = new LoginPage(driver);
 
         String username = ConfigReader.getProperty("username");
@@ -27,10 +27,29 @@ public class LoginTest extends BaseTest {
 
         String actualUrl = DriverFactory.getDriver().getCurrentUrl();
 
+        Assert.assertEquals(actualUrl, expectedUrl, "❌ Login failed: URL doesn't match expected dashboard URL");
 
+    }
 
+    @Test(description = "Verify successful login for 2nd")
+    public void testValidLogin2() {
+        LoginPage loginPage = new LoginPage(driver);
+
+        String username = ConfigReader.getProperty("username");
+        String password = ConfigReader.getProperty("password");
+
+        loginPage.login(username, password);
+
+        System.out.println("Login attempted with username: " + username);
+
+        String expectedUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
+
+        String actualUrl = DriverFactory.getDriver().getCurrentUrl();
 
         Assert.assertEquals(actualUrl, expectedUrl, "❌ Login failed: URL doesn't match expected dashboard URL");
 
     }
+
+
+
 }
