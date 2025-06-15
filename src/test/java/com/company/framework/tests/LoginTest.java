@@ -24,7 +24,7 @@ public class LoginTest extends BaseTest {
 
         System.out.println("Login attempted with username: " + username);
 
-        String expectedUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
+        String expectedUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/inde";
 
         String actualUrl = DriverFactory.getDriver().getCurrentUrl();
 
