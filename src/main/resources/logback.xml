@@ -1,0 +1,36 @@
+<configuration>
+
+    <!-- 1) CURRENT: fresh log per run (overwritten) -->
+    <appender name="CURRENT" class="ch.qos.logback.core.FileAppender">
+        <file>logs/current.log</file>
+        <append>false</append>      <!-- overwrite each run -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 2) DAILY: accumulate logs per day, roll at midnight -->
+    <appender name="DAILY" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- this is the active daily file -->
+        <file>logs/daily.log</file>
+        <append>true</append>       <!-- append across runs -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- archive path, one file per day -->
+            <fileNamePattern>logs/daily.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>       <!-- keep 7 days of archives -->
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- root logger sends all events to both appenders -->
+    <root level="INFO">
+        <appender-ref ref="CURRENT"/>
+        <appender-ref ref="DAILY"/>
+    </root>
+
+</configuration>

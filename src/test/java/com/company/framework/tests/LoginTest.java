@@ -13,13 +13,14 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
 
     @Test(description = "Verify successful login 1st")
-    public void testValidLogin1() {
+    public void testValidLogin1() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
 
         String username = ConfigReader.getProperty("username");
         String password = ConfigReader.getProperty("password");
 
         loginPage.login(username, password);
+        Thread.sleep(5000); // 👈 just for visual confirmation
 
         System.out.println("Login attempted with username: " + username);
 
@@ -32,13 +33,14 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(description = "Verify successful login for 2nd")
-    public void testValidLogin2() {
+    public void testValidLogin2() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
 
         String username = ConfigReader.getProperty("username");
         String password = ConfigReader.getProperty("password");
 
         loginPage.login(username, password);
+        Thread.sleep(5000); // 👈 just for visual confirmation
 
         System.out.println("Login attempted with username: " + username);
 
