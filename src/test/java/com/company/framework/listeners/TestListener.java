@@ -1,9 +1,8 @@
 package com.company.framework.listeners;
 
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.ExtentReports;
-import com.company.framework.base.DriverFactory;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.company.framework.reports.ExtentManager;
 import com.company.framework.utils.ScreenshotUtil;
 import org.testng.ITestContext;

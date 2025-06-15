@@ -1,12 +1,11 @@
 package com.company.framework.tests;
-import com.company.framework.base.DriverFactory;
-import org.testng.Assert;
 
 import com.company.framework.base.BaseTest;
+import com.company.framework.base.DriverFactory;
 import com.company.framework.config.ConfigReader;
-import com.company.framework.pages.LoginPage;
 import com.company.framework.listeners.TestListener;
-
+import com.company.framework.pages.LoginPage;
+import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -24,7 +23,7 @@ public class LoginTest extends BaseTest {
 
         System.out.println("Login attempted with username: " + username);
 
-        String expectedUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/inde";
+        String expectedUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
 
         String actualUrl = DriverFactory.getDriver().getCurrentUrl();
 
