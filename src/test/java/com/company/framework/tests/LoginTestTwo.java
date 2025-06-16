@@ -9,11 +9,14 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners({TestListener.class})
-public class LoginTest extends BaseTest {
 
-    @Test(description = "Verify successful login 1st")
-    public void testValidLogin1() throws InterruptedException {
+
+
+@Listeners({TestListener.class})
+public class LoginTestTwo extends BaseTest {
+
+    @Test(description = "Verify successful login for 2nd")
+    public void testValidLogin2() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
 
         String username = ConfigReader.getProperty("username");

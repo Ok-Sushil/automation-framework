@@ -23,11 +23,26 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         testReport.get().log(Status.PASS, "✅ Test Passed");
+
+        Object retryAnalyzer = result.getMethod().getRetryAnalyzer(result);
+        if (retryAnalyzer instanceof RetryAnalyzer) {
+            int retryCount = ((RetryAnalyzer) retryAnalyzer).getAttemptCount();
+            if (retryCount > 0) {
+                testReport.get().log(Status.WARNING, "⚠️ Flaky Test: Passed after retry #" + retryCount);
+            }
+        }
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         testReport.get().log(Status.FAIL, "❌ Test Failed: " + result.getThrowable());
+
+        Object retryAnalyzer = result.getMethod().getRetryAnalyzer(result);
+
+        if (retryAnalyzer instanceof RetryAnalyzer) {
+            int currentAttempt = ((RetryAnalyzer) retryAnalyzer).getAttemptCount();
+            testReport.get().log(Status.INFO, "🔁 Retry attempt: " + currentAttempt + " of 2");
+        }
 
         try {
             String screenshotPath = ScreenshotUtil.captureScreenshot(result.getName());
@@ -41,6 +56,7 @@ public class TestListener implements ITestListener {
             testReport.get().log(Status.WARNING, "❗ Error capturing screenshot: " + e.getMessage());
         }
     }
+
 
     @Override
     public void onTestSkipped(ITestResult result) {
