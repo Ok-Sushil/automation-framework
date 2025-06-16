@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.company.framework.reports.ExtentManager;
+import com.company.framework.utils.AssetCopier;
 import com.company.framework.utils.ScreenshotUtil;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -65,6 +66,6 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext context) {
-        extent.flush();
+        AssetCopier.copyExtentAssets(); extent.flush();
     }
 }
