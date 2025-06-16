@@ -1,0 +1,18 @@
+<extentreports>
+    <configuration>
+        <theme>standard</theme>
+        <encoding>utf-8</encoding>
+        <offlineMode>true</offlineMode>
+
+        <documentTitle>Automation Report</documentTitle>
+        <reportName>Smoke Test Report</reportName>
+
+        <resources>
+            <css>extent-assets/spark-style.css</css>
+            <css>extent-assets/font-awesome.min.css</css>
+            <js>extent-assets/spark-script.js</js> <!-- If you have this file -->
+            <logo>extent-assets/logo.png</logo>
+        </resources>
+    </configuration>
+</extentreports>
+
